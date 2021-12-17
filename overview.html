@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script src="main.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>AI Taxonomy</title>
+    </head>
+    <body>
+        <div class="browserWidthCatch">
+            <p>This project is designed for a wider browser width. ☺</p>
+        </div>
+        <div id=modal_background style="display: none"></div>
+        <div id=content>
+            <div id=header>
+                <a href="overview.html"><div id=logo>
+                    <p class=logo>AI can do...</p>
+                    <br>
+                    <br>
+                </div></a>
+                <div id=navigation>
+                    <div style="margin-right: 4vw"><a href="overview.html"><p>Overview</p></a></div>
+                    <div style="margin-right: 4vw"><a href="capability.html"><p class=navigation_tab>by Capability</p></a></div>
+                    <div style="margin-right: 4vw"><a href="industry.html"><p class=navigation_tab>by Industry</p></a></div>
+                    <div id=question_mark><p>&emsp;?&emsp;</p></div>
+                </div>
+            </div>
+            <div id=overview_flex>
+                <div id=overview_inside>
+                    <div class=flex_child1>
+                        <p class=overview_title_number>1.</p><p class=overview_title id=compare_p>Compare</p>
+                        <p class=overview_title_number>2.</p><p class=overview_title id=compose_p>Compose</p>
+                    </div>
+                    <div class=flex_child2>
+                        <p class=overview_title_number>3.</p><p class=overview_title id=detect_p>Detect</p>
+                        <p class=overview_title_number>4.</p><p class=overview_title id=discover_p>Discover</p>
+                        <p class=overview_title_number>5.</p><p class=overview_title id=estimate_p>Estimate</p>
+                    </div>
+                    <div class=flex_child3>
+                        <p class=overview_title_number>6.</p><p class=overview_title id=forecast_p>Forecast</p>
+                        <p class=overview_title_number>7.</p><p class=overview_title id=identify_p>Identify</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="window compare_window_show" style="display: none">
+            <div class=close>
+                <img class=close_icon src="assets/img/close.png" alt="" style="margin-bottom: 460px">
+            </div>
+            <div id=compare_window>
+                <p id=compare_window_title>Compare</p>
+                <br>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Definition:</p><p style="font-size: 17px">Compare entities within a corpus of similar entities. Organize a collection of entities based on intention to maximize or minimize some outcome.</p>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Synonyms:</p><p style="font-size: 17px">Rank, Order, Find Best, Find Fastest, Find Cheapest, Recommend</p>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Examples:</p><p style="font-size: 17px">Rank a set of products based on the liklihood a customer might want to buy them. Generate a stream of socialmedia posts to maximize the time a customer spends looking at the media.</p>
+                <br>
+                <!-- <p style="font-family: 'aspira_heavy'; font-size: 17px">Common Applications:</p> -->
+                <div style="height: 7px"></div>
+                <!-- <p style="font-size: 17px">Things to buy on Amazon; Media on Netflix</p>
+                <br> -->
+                <br>
+                <a href="link/compare_routes.html"><span class="tag2 tag3 tag3_red" style="margin-right: 8px">Compare the best routes</span></a>
+                <a href="link/compare_likely_next_word_for_partial_sentence.html"><span class="tag2 tag3 tag3_red">Compare likely next word for partial sentence</span></a>
+                <br>
+                <br>
+                <br>
+                <a href="link/compare_impact_of_resource_distribution_schedules.html"><span class="tag2 tag3 tag3_red">Compare impact of resource distribution schedules</span></a>
+                <div class=window_examples></div>
+            </div>
+        </div>
+
+        <div class="window compose_window_show" style="display: none">
+            <div class=close>
+                <img class=close_icon src="assets/img/close.png" alt="">
+            </div>
+            <div id=compose_window>
+                <p id=compose_window_title>Compose</p>
+                <br>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Definition:</p><p style="font-size: 17px">Generate something new (message, image, sound) based on knowledge of similar things.</p>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Synonyms:</p><p style="font-size: 17px">Make, Generate, Construct, Author</p>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Examples:</p><p style="font-size: 17px">Answer this person's question. Make the agent sound like they are a teenager from France. Remove the chimey and fill in the image detail from where it was removed.</p>
+                <br>
+                <!-- <p style="font-family: 'aspira_heavy'; font-size: 17px">Common Applications:</p> -->
+                <div style="height: 7px"></div>
+                <!-- <p style="font-size: 17px">Things to buy on Amazon; Media on Netflix</p>
+                <br> -->
+                <br>
+                <a href="link/generate_the_missing_or_damaged_parts_of_existing_image.html"><span class="tag2 tag3 tag3_blue" style="margin-right: 8px">Compose the missing or damaged parts of existing images</span></a>
+                <br>
+                <br>
+                <br>
+                <a href="link/compose_the_driving_path.html"><span class="tag2 tag3 tag3_blue" style="margin-right: 8px">Compose the driving path</span></a>
+                <a href="link/compose_text_from_speech.html"><span class="tag2 tag3 tag3_blue">Compose text from speech (video content)</span></a>
+                <div class=window_examples></div>
+            </div>
+        </div>
+
+        <div class="window detect_window_show" style="display: none">
+            <div class=close>
+                <img class=close_icon src="assets/img/close.png" alt="">
+            </div>
+            <div id=detect_window>
+                <p id=detect_window_title>Detect</p>
+                <br>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Definition:</p><p style="font-size: 17px">Notice if a specific kind of a thing is in a data set or if it shows up in a senosr stream.</p>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Synonyms:</p><p style="font-size: 17px">Monitor, Sense, Notice, Classify, Discriminate</p>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Examples:</p><p style="font-size: 17px">Does the audio contain a human voice? Does the user's motion indicate that they are walking? Is there a face in this image? Does anything in the image look like a hand?</p>
+                <br>
+                <!-- <p style="font-family: 'aspira_heavy'; font-size: 17px">Common Applications:</p> -->
+                <div style="height: 7px"></div>
+                <!-- <p style="font-size: 17px">Things to buy on Amazon; Media on Netflix</p>
+                <br> -->
+                <br>
+                <a href="link/detect_emotion_in_voice_audio.html"><span class="tag2 tag3 tag3_orange" style="margin-right: 8px">Detect emotion in voice audio</span></a>
+                <a href="link/detect_defects_in_product_images.html"><span class="tag2 tag3 tag3_orange">Detect defects in product image</span></a>
+                <br>
+                <br>
+                <br>
+                <a href="link/detect_lane_boundaries_in_image.html"><span class="tag2 tag3 tag3_orange">Detect lane boundaries in image</span></a>
+                <div class=window_examples></div>
+            </div>
+        </div>
+
+        <div class="window discover_window_show" style="display: none">
+            <div class=close>
+                <img class=close_icon src="assets/img/close.png" alt="">
+            </div>
+            <div id=discover_window>
+                <p id=discover_window_title>Discover</p>
+                <br>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Definition:</p><p style="font-size: 17px">Analyze a dataset and notice a pattern that allows clustering of similar things.</p>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Synonyms:</p><p style="font-size: 17px">Extract, Notice, Organize, Cluster, Group, Connect, Reveal</p>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Examples:</p><p style="font-size: 17px">What are the different ways users use this web site? Sort these people into groups based on things they seem to like.</p>
+                <br>
+                <!-- <p style="font-family: 'aspira_heavy'; font-size: 17px">Common Applications:</p> -->
+                <div style="height: 7px"></div>
+                <!-- <p style="font-size: 17px">Things to buy on Amazon; Media on Netflix</p>
+                <br> -->
+                <br>
+                <a href="link/discover_new_fraudulent_tactics.html"><span class="tag2 tag3 tag3_pink" style="margin-right: 8px">Discover new fraudulent tactics</span></a>
+                <a href="link/discover_new_uses_for_drug.html"><span class="tag2 tag3 tag3_pink">Discover new uses for drug</span></a>
+                <br>
+                <br>
+                <br>
+                <a href="link/discover_defect_in_a_product_image.html"><span class="tag2 tag3 tag3_pink">Discover defect in product image</span></a>
+                <div class=window_examples></div>
+            </div>
+        </div>
+
+        <div class="window estimate_window_show" style="display: none">
+            <div class=close>
+                <img class=close_icon src="assets/img/close.png" alt="">
+            </div>
+            <div id=estimate_window>
+                <p id=estimate_window_title>Estimate</p>
+                <br>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Definition:</p><p style="font-size: 17px">Infer a value (ex: location, position, size, grade, chance of something being true) related to the current situation.</p>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Synonyms:</p><p style="font-size: 17px">Rate, Grade, Measure, Assess</p>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Examples:</p><p style="font-size: 17px">How long it will take to reach your destination if you left right now? What are the chances the message you are viewing is spam? What is the direction of the speaker from the microphone?</p>
+                <br>
+                <!-- <p style="font-family: 'aspira_heavy'; font-size: 17px">Common Applications:</p> -->
+                <div style="height: 7px"></div>
+                <!-- <p style="font-size: 17px">Things to buy on Amazon; Media on Netflix</p>
+                <br> -->
+                <br>
+                <a href="link/estimate_risk_of_fraud.html"><span class="tag2 tag3 tag3_purple" style="margin-right: 8px">Estimate risk of fraud</span></a>
+                <a href="link/estimate_drug_toxicity.html"><span class="tag2 tag3 tag3_purple" style="margin-right: 8px">Estimate drug toxicity</span></a>
+                <a href="link/estimate_travel_time.html"><span class="tag2 tag3 tag3_purple">Estimate travel time</span></a>
+                <div class=window_examples></div>
+            </div>
+        </div>
+
+        <div class="window forecast_window_show" style="display: none">
+            <div class=close>
+                <img class=close_icon src="assets/img/close.png" alt="" style="margin-bottom: 460px">
+            </div>
+            <div id=forecast_window>
+                <p id=forecast_window_title>Forecast</p>
+                <br>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Definition:</p><p style="font-size: 17px">Infer a future value (stock price, sales, weather, chance of something being true) based on current conditions and history. Infer a peak or valley in a trend line (minimum or maximum).</p>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Synonyms:</p><p style="font-size: 17px">Predict, Guess, Speculate</p>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Examples:</p><p style="font-size: 17px">When is the best time to buy a specific stock? What will the weather be tomorrow? How much can I sell my home for in a year? </p>
+                <br>
+                <!-- <p style="font-family: 'aspira_heavy'; font-size: 17px">Common Applications:</p> -->
+                <div style="height: 7px"></div>
+                <!-- <p style="font-size: 17px">Things to buy on Amazon; Media on Netflix</p>
+                <br> -->
+                <br>
+                <a href="link/forecast_crop_yield.html"><span class="tag2 tag3 tag3_green" style="margin-right: 8px">Forecast crop yield</span></a>
+                <a href="link/predict_likelihood_of_system_breakdown.html"><span class="tag2 tag3 tag3_green">Forecast likelihood of system breakdown</span></a>
+                <br>
+                <br>
+                <br>
+                <a href="link/forecast_usage_peaks_and_valleys.html"><span class="tag2 tag3 tag3_green">Forecast usage peaks and valleys</span></a>
+                <div class=window_examples></div>
+            </div>
+        </div>
+
+        <div class="window identify_window_show" style="display: none">
+            <div class=close>
+                <img class=close_icon src="assets/img/close.png" alt="" style="margin-bottom: 490px">
+            </div>
+            <div id=identify_window>
+                <p id=identify_window_title>Identify</p>
+                <br>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Definition:</p><p style="font-size: 17px">Notice if a specific item or class of items shows up in a set of like times.</p>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Synonyms:</p><p style="font-size: 17px">Recognize, Discern, Find, Notice</p>
+                <br>
+                <p style="font-family: 'aspira_heavy'; font-size: 17px">Examples:</p><p style="font-size: 17px">Does this image of a face show your friend Mary? Is this message span or not spam? What kind of cat is that?</p>
+                <br>
+                <!-- <p style="font-family: 'aspira_heavy'; font-size: 17px">Common Applications:</p> -->
+                <div style="height: 7px"></div>
+                <!-- <p style="font-size: 17px">Things to buy on Amazon; Media on Netflix</p>
+                <br> -->
+                <br>
+                <a href="link/identify_anomalies_as_tumors_or_not.html"><span class="tag2 tag3 tag3_darkblue" style="margin-right: 8px">Identify anomalies as tumors or not</span></a>
+                <a href="link/identify_emotion_in_face_image.html"><span class="tag2 tag3 tag3_darkblue">Identify emotion in face image</span></a>
+                <br>
+                <br>
+                <br>
+                <a href="link/identify_key_data_points.html"><span class="tag2 tag3 tag3_darkblue">Identify key data points from documents</span></a>
+                <div class=window_examples></div>
+            </div>
+        </div>
+
+        <div class="window question_window_show" style="display: none">
+            <!-- <div class=close style="margin-bottom: 10px">
+                <img class=close_icon src="assets/img/close.png" alt="" style="margin-bottom: 300px">
+            </div> -->
+            <div id=question_window style="padding-top: 60px">
+                <p style="font-size: 17px">This AI Taxonomy aims to support professional product designers, UX designers and startups to better envision and prototype new products and services that integate AI capabilities. 
+                    <br>
+                    <br>
+                    Each card represents a task that AI could do. You can sort through the cards by selecting “by Capability” or "by Industry" at the top right bar. You can also use filters on the left side to filter cards, and click any card to view the workflow in details.
+                    <br>
+                    <br>
+                    This website is made by <a href=http://www.anitasun.me style="text-decoration: none; text-decoration: underline; color: rgb(0, 0, 0)" class=external_link>Anita Sun</a> as part of the research project under the guidance of professor John Zimmerman, professor Jodi Forlizzi and Nur Yildirim. Enjoy!</p>
+                    <br>
+                <div id=close_button>
+                    <span class="tag2 tag3 tag3_grey" style="margin-right: 8px; line-height: 18px">Start explore →</span>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                $("#question_mark").click(function(){
+                    $("#modal_background").show();
+                    $(".question_window_show").show();
+                    $("#close_button").show();
+                });
+                $("#modal_background").click(function(){
+                    $("#modal_background").hide();
+                    $(".question_window_show").hide();
+                    $("#close_button").hide();
+                });
+                $("#close_button").click(function(){
+                    $("#modal_background").hide();
+                    $(".question_window_show").hide();
+                    $("#close_button").hide();
+                });
+            });
+
+            $(document).ready(function(){
+                $("#compare_p").click(function(){
+                    $("#modal_background").show();
+                    $(".compare_window_show").show();
+                    $(".close_icon").show();
+                });
+                $("#modal_background").click(function(){
+                    $("#modal_background").hide();
+                    $(".compare_window_show").hide();
+                });
+                $(".close_icon").click(function(){
+                    $("#modal_background").hide();
+                    $(".compare_window_show").hide();
+                    $(".close_icon").hide();
+                });
+            });
+
+            $(document).ready(function(){
+                $("#compose_p").click(function(){
+                    $("#modal_background").show();
+                    $(".compose_window_show").show();
+                    $(".close_icon").show();
+                });
+                $("#modal_background").click(function(){
+                    $("#modal_background").hide();
+                    $(".compose_window_show").hide();
+                });
+                $(".close_icon").click(function(){
+                    $("#modal_background").hide();
+                    $(".compose_window_show").hide();
+                    $(".close_icon").hide();
+                });
+            });
+
+            $(document).ready(function(){
+                $("#detect_p").click(function(){
+                    $("#modal_background").show();
+                    $(".detect_window_show").show();
+                    $(".close_icon").show();
+                });
+                $("#modal_background").click(function(){
+                    $("#modal_background").hide();
+                    $(".detect_window_show").hide();
+                });
+                $(".close_icon").click(function(){
+                    $("#modal_background").hide();
+                    $(".detect_window_show").hide();
+                    $(".close_icon").hide();
+                });
+            });
+
+            $(document).ready(function(){
+                $("#discover_p").click(function(){
+                    $("#modal_background").show();
+                    $(".discover_window_show").show();
+                    $(".close_icon").show();
+                });
+                $("#modal_background").click(function(){
+                    $("#modal_background").hide();
+                    $(".discover_window_show").hide();
+                });
+                $(".close_icon").click(function(){
+                    $("#modal_background").hide();
+                    $(".discover_window_show").hide();
+                    $(".close_icon").hide();
+                });
+            });
+
+            $(document).ready(function(){
+                $("#estimate_p").click(function(){
+                    $("#modal_background").show();
+                    $(".estimate_window_show").show();
+                    $(".close_icon").show();
+                });
+                $("#modal_background").click(function(){
+                    $("#modal_background").hide();
+                    $(".estimate_window_show").hide();
+                });
+                $(".close_icon").click(function(){
+                    $("#modal_background").hide();
+                    $(".estimate_window_show").hide();
+                    $(".close_icon").hide();
+                });
+            });
+
+            $(document).ready(function(){
+                $("#forecast_p").click(function(){
+                    $("#modal_background").show();
+                    $(".forecast_window_show").show();
+                    $(".close_icon").show();
+                });
+                $("#modal_background").click(function(){
+                    $("#modal_background").hide();
+                    $(".forecast_window_show").hide();
+                });
+                $(".close_icon").click(function(){
+                    $("#modal_background").hide();
+                    $(".forecast_window_show").hide();
+                    $(".close_icon").hide();
+                });
+            });
+
+            $(document).ready(function(){
+                $("#identify_p").click(function(){
+                    $("#modal_background").show();
+                    $(".identify_window_show").show();
+                    $(".close_icon").show();
+                });
+                $("#modal_background").click(function(){
+                    $("#modal_background").hide();
+                    $(".identify_window_show").hide();
+                });
+                $(".close_icon").click(function(){
+                    $("#modal_background").hide();
+                    $(".identify_window_show").hide();
+                    $(".close_icon").hide();
+                });
+            });
+        </script>
+    </body>
+</html>

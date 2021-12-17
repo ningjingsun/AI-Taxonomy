@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <script src="main.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>AI Taxonomy</title>
+    </head>
+
+    <body style="margin: 0; padding: 0; background-color: rgb(245, 245, 245)">
+        <div id="top_header" class="detect_header">
+            <a href="../capability.html"><p class=go_back style="margin-bottom: 8px">All Domains&ensp;>&ensp;Commerce & Sales&ensp;>&ensp;AR Item Viewing</p></a>
+            <br>
+            <br>
+            <span class=logo_light>AI can </span><span class=logo_black>detect</span><br>
+            <span class=logo_black>the room from depth camera</span>
+            <div class=header_img>
+                <img class=header_img_size src="../assets/img/ar_item_viewing.png" alt="">
+            </div>
+        </div>
+
+        <div id="detail_content">
+            <div class="description">
+                <div id=description_text_block>
+                    <p class="feature_title">AR Item Viewing</p>
+                    <br>
+                    <p class="description_text">Allows users to preview furniture and other home products in their own physical environment when doing online shopping. Through smartphone cameras, it detects the room, objects in the room, and collision of virtual products and the objects in the room to place single product or multiple products to the room, which helps consumers visualize how a product or a whole set of products could fit together in their own space.
+                        It can help users make shopping decisions, and increase sales for e-commerce platforms, brands, or merchants.
+                    </p>
+                    <br>
+                    <span class="feature_title">Industry:&emsp;</span><span class="description_text">Commerce & Sales</span>
+                    <br>
+                    <span class="feature_title">Service Type:&emsp;</span><span class="description_text">B2C</span>
+                </div>
+            </div>
+            <div class="description" style="margin-top: 36px">
+                <div id="sequence">
+                    <p class="feature_title">Sequences</p>
+                </div>
+                <div id="scrollable">
+                    <a href="detect_the_room_from_depth_camera.html"><span class="tag2 orange_tag_selected">1A.Detect the room from depth camera </span></a>
+                    <span style="color: rgb(170, 170, 170)">&emsp;>&emsp;</span>
+                    <a href="detect_objecs_in_the_room_from_depth_camera.html"><span class="tag2 tag3 tag3_orange">2.Detect objects in the room from depth camera</span></a>
+                    <span style="color: rgb(170, 170, 170)">&emsp;>&emsp;</span>
+                    <a href="detect_spatial_characteristics_and_size.html"><span class="tag2 tag3 tag3_orange">3.Detect spatial characteristics and size</span></a>
+                    <span style="color: rgb(170, 170, 170)">&emsp;>&emsp;</span>
+                    <a href="estimate_space_between_the_objects_from_depth_camera.html"><span class="tag2 tag3 tag3_orange">4.Estimate space between the objects from depth camera</span></a>
+                    <span style="color: rgb(170, 170, 170)">&emsp;>&emsp;</span>
+                    <a href="detect_collision_events_of_digital_product_and_objects_in_space.html"><span class="tag2 tag3 tag3_orange">5.Detect collision events of digital product and objects in space</span></a>
+                    <span>&emsp;&emsp;&emsp;</span>
+                    <div style="height: 40px"></div>
+
+                    <a href="identify_objects_with_depth_camera.html"><span class="tag2 tag3 tag3_orange">1B.Identify objects with depth camera</span></a>
+                    <span>&emsp;&emsp;&emsp;</span>
+                </div>
+                <div id="sequence2">
+                </div>
+                <div id="datatype">
+                    <div class=child1><p class="feature_title">Supervised Machine Learning</p></div>
+                    <div class=child2>
+                        <p class="feature_title">Input Data:</p>
+                        <br>
+                        <p class="description_text">An image from the depth camera</p>
+                    </div>
+                    <div class=child3>
+                        <p class="feature_title">Output Data:</p>
+                        <br>
+                        <p class="description_text">Label saying if there is a room or not</p>
+                    </div>
+                    <div class=child4>
+                        <p class="feature_title">Data Features:</p>
+                        <br>
+                        <p class="description_text">Texture/outline shape of the light dots</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </body>
+</html>

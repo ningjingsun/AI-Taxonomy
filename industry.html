@@ -1,0 +1,2802 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script src="main.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>AI Taxonomy</title>
+    </head>
+
+    <body style="overflow-x: hidden; overflow-y: hidden">
+        <div class="browserWidthCatch">
+            <p>This project is designed for a wider browser width. ☺</p>
+        </div>
+        <div id=modal_background style="display: none"></div>
+        <div id=content>
+            <div id=header>
+                <a href="overview.html"><div id=logo>
+                    <p class=logo>AI can do...</p>
+                    <br>
+                    <br>
+                </div></a>
+                <div id=navigation>
+                    <div style="margin-right: 4vw"><a href="overview.html"><p class=navigation_tab>Overview</p></a></div>
+                    <div style="margin-right: 4vw"><a href="capability.html"><p class=navigation_tab>by Capability</p></a></div>
+                    <div style="margin-right: 4vw"><a href="industry.html"><p>by Industry</p></a></div>
+                    <div id=question_mark><p>&emsp;?&emsp;</p></div>
+                </div>
+            </div>
+            <div id=card_content>
+                <div id=filter>
+                    <br>
+                    <br>
+                    <br>
+                    <input type="checkbox" name="capability" id="capability" value="All capabilities" onclick="capabilitytoggle(this); filter_capability(); filter_compare(); filter_compose(); filter_detect(); filter_discover(); filter_estimate(); filter_forecast(); filter_identify()" checked>
+                    <label class=tag for="capability" style="font-family: 'aspira_heavy'">&emsp;All capabilities</label>
+                    <br>
+                    <!-- <input type="checkbox" name="capability" id="act" value="act" onclick="filter_act()" checked>
+                    <label class=tag for="act">&emsp;Act (1)</label>
+                    <br> -->
+                    <input type="checkbox" name="capability" id="compare" value="compare" onclick="filter_compare()" checked>
+                    <label class=tag for="compare">&emsp;Compare (15)</label>
+                    <br>
+                    <input type="checkbox" name="capability" id="compose" value="compose" onclick="filter_compose()" checked>
+                    <label class=tag for="compose">&emsp;Compose (10)</label>
+                    <br>
+                    <input type="checkbox" name="capability" id="detect" value="detect" onclick="filter_detect()" checked>
+                    <label class=tag for="detect">&emsp;Detect (27)</label>
+                    <br>
+                    <input type="checkbox" name="capability" id="discover" value="discover" onclick="filter_discover()" checked>
+                    <label class=tag for="discover">&emsp;Discover (5)</label>
+                    <br>
+                    <input type="checkbox" name="capability" id="estimate" value="estimate" onclick="filter_estimate()" checked>
+                    <label class=tag for="estimate">&emsp;Estimate (19)</label>
+                    <br>
+                    <input type="checkbox" name="capability" id="forecast" value="forecast" onclick="filter_forecast()" checked>
+                    <label class=tag for="forecast">&emsp;Forecast (15)</label>
+                    <br>
+                    <input type="checkbox" name="capability" id="identify" value="identify" onclick="filter_identify()" checked>
+                    <label class=tag for="identify">&emsp;Identify (43)</label>
+                    <br>
+                    <br>
+                    <br>
+                    <input type="checkbox" name="industry" id="industry" value="All industries" onclick="industrytoggle(this); filter_industry(); filter_commerce(); filter_education(); filter_finance(); filter_healthcare(); filter_hospitality(); filter_infrastructure(); filter_leisure(); filter_manufacturing(); filter_office(); filter_professional(); filter_risk(); filter_transportation()" checked>
+                    <label class=tag for="industry" style="font-family: 'aspira_heavy'">&emsp;All industries</label>
+                    <br>
+                    <input type="checkbox" name="industry" id="commerce" value="commerce & sales" onclick="filter_commerce()" checked>
+                    <label class=tag for="commerce">&emsp;Commerce & Sales (7)</label>
+                    <br>
+                    <input type="checkbox" name="industry" id="education" value="education" onclick="filter_education()" checked>
+                    <label class=tag for="education">&emsp;Education (13)</label>
+                    <br>
+                    <input type="checkbox" name="industry" id="finance" value="finance" onclick="filter_finance()" checked>
+                    <label class=tag for="finance">&emsp;Finance (9)</label>
+                    <br>
+                    <input type="checkbox" name="industry" id="healthcare" value="healthcare" onclick="filter_healthcare()" checked>
+                    <label class=tag for="healthcare">&emsp;Healthcare (19)</label>
+                    <br>
+                    <input type="checkbox" name="industry" id="hospitality" value="hospitality" onclick="filter_hospitality()" checked>
+                    <label class=tag for="hospitality">&emsp;Hospitality (6)</label>
+                    <br>
+                    <input type="checkbox" name="industry" id="infrastructure" value="infrastructure" onclick="filter_infrastructure()" checked>
+                    <label class=tag for="infrastructure">&emsp;Infrastructure & Utilities (4)</label>
+                    <br>
+                    <input type="checkbox" name="industry" id="leisure" value="leisure" onclick="filter_leisure()" checked>
+                    <label class=tag for="leisure">&emsp;Leisure, Content & Media (18)</label>
+                    <br>
+                    <input type="checkbox" name="industry" id="manufacturing" value="manufacturing" onclick="filter_manufacturing()" checked>
+                    <label class=tag for="manufacturing">&emsp;Manufacturing & Agriculture (16)</label>
+                    <br>
+                    <input type="checkbox" name="industry" id="office" value="office" onclick="filter_office()" checked>
+                    <label class=tag for="office">&emsp;Office Productivity & Business (3)</label>
+                    <br>
+                    <input type="checkbox" name="industry" id="professional" value="professional" onclick="filter_professional()" checked>
+                    <label class=tag for="professional">&emsp;Professional Services (14)</label>
+                    <br>
+                    <input type="checkbox" name="industry" id="risk" value="risk" onclick="filter_risk()" checked>
+                    <label class=tag for="risk">&emsp;Risk Mitigation & Security (10)</label>
+                    <br>
+                    <input type="checkbox" name="industry" id="transportation" value="transportation" onclick="filter_transportation()" checked>
+                    <label class=tag for="transportation">&emsp;Transportation (16)</label>
+                    <br>
+                    <br>
+                    <br>
+                    <!-- <input type="checkbox" name="datatype" id="datatype" value="All data types" onclick="datatypetoggle(this); filter_datatype()" checked>
+                    <label class=tag for="datatype" style="font-family: 'aspira_heavy'">&emsp;All data types</label>
+                    <br>
+                    <input type="checkbox" name="datatype" id="audio" value="audio" checked>
+                    <label class=tag for="audio">&emsp;Audio</label>
+                    <br>
+                    <input type="checkbox" name="datatype" id="image" value="image" checked>
+                    <label class=tag for="image">&emsp;Image</label>
+                    <br>
+                    <input type="checkbox" name="datatype" id="tabular" value="tabular" checked>
+                    <label class=tag for="tabular">&emsp;Tabular</label>
+                    <br>
+                    <input type="checkbox" name="datatype" id="text" value="text" checked>
+                    <label class=tag for="text">&emsp;Text</label>
+                    <br>
+                    <input type="checkbox" name="datatype" id="video" value="video" checked>
+                    <label class=tag for="video">&emsp;Video</label> -->
+                    <br>
+                    <br>
+                    <br>
+                </div>
+
+                <div id=card>
+                    <br>
+                    <br>
+                    <br>
+
+                    <!-- <p class="title">Act</p>
+                    <div class="cardbox act_cardbox">
+                        <div class="card act_card card_hide act_cards transportation_card">
+                            <div class="card_title act_card_title">
+                                <p class=card_title_p>Act</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="act_card_text">micro adjustments of parking</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                <div class=tag0><p class="tag tag1">AI Parking</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/aiparking.png" alt="aiparking">
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <p class="title">Commerce & Sales</p>
+                    <div class="cardbox compare_cardbox">
+                        <a href="link/compare_products_of_interest.html"><div class="card compare_card card_hide compare_cards commerce_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">products of interest</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Commerce & Sales</p></div>
+                                <div class=tag0><p class="tag tag1">Personalized Advertisements</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/personalized_advertisements.png" alt="personalized advertisements">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_collision_events_of_digital_product_and_objects_in_space.html"><div class="card detect_card card_hide detect_cards commerce_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">collision events of digital product and objects in space</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Commerce & Sales</p></div>
+                                <div class=tag0><p class="tag tag1">AR Item Viewing</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/ar_item_viewing.png" alt="ar item viewing">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_objecs_in_the_room_from_depth_camera.html"><div class="card detect_card card_hide detect_cards commerce_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">objects in the room from depth camera</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Commerce & Sales</p></div>
+                                <div class=tag0><p class="tag tag1">AR Item Viewing</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/ar_item_viewing.png" alt="ar item viewing">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_spatial_characteristics_and_size.html"><div class="card detect_card card_hide detect_cards commerce_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">spatial characteristics and size</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Commerce & Sales</p></div>
+                                <div class=tag0><p class="tag tag1">AR Item Viewing</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/ar_item_viewing.png" alt="ar item viewing">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_the_room_from_depth_camera.html"><div class="card detect_card card_hide detect_cards commerce_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">the room from depth camera</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Commerce & Sales</p></div>
+                                <div class=tag0><p class="tag tag1">AR Item Viewing</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/ar_item_viewing.png" alt="ar item viewing">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_space_between_the_objects_from_depth_camera.html"><div class="card estimate_card card_hide estimate_cards commerce_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">space between the objects from depth camera</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Commerce & Sales</p></div>
+                                <div class=tag0><p class="tag tag1">AR Item Viewing</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/ar_item_viewing.png" alt="AR item viewing">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_objects_with_depth_camera.html"><div class="card identify_card card_hide identify_cards commerce_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">objects with depth camera</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Commerce & Sales</p></div>
+                                    <div class=tag0><p class="tag tag1">AR Item Viewing</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/ar_item_viewing.png" alt="ar_item_viewing">
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <p class="title">Education</p>
+                    <div class="cardbox compose_cardbox">
+
+                        <a href="link/compare_impact_of_feedback_options.html"><div class="card compare_card card_hide compare_cards education_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">impact of feedback options</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Education</p></div>
+                                <div class=tag0><p class="tag tag1">Feedback Systems</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/feedback_system.png" alt="feedback system">
+                            </div>
+                        </div></a>
+
+                        <a href="link/compare_impact_of_problem_on_acquiring_skill.html"><div class="card compare_card card_hide compare_cards education_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">impact of problems on acquiring skills</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Education</p></div>
+                                <div class=tag0><p class="tag tag1">Personalized Lesson Plans</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/personalized_lesson.png" alt="personalized lesson">
+                            </div>
+                        </div></a>
+
+                        <a href="link/compare_skills_for_student_to_practice.html"><div class="card compare_card card_hide compare_cards education_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">skills for student to practice</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Education</p></div>
+                                <div class=tag0><p class="tag tag1">Personalized Lesson Plans</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/personalized_lesson.png" alt="personalized lesson">
+                            </div>
+                        </div></a>
+
+                        <a href="link/compare_impact_of_skill_learning_to_new_skill.html"><div class="card compare_card card_hide compare_cards education_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">impact of skill learning of new skill</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Education</p></div>
+                                <div class=tag0><p class="tag tag1">Personalized Lesson Plans</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/personalized_lesson.png" alt="personalized lesson">
+                            </div>
+                        </div></a>
+
+                        <a href="link/compose_cognitive_model_of_a_student_learning.html"><div class="card compose_card card_hide compose_cards education_card">
+                            <div class="card_title compose_card_title">
+                                <p class=card_title_p>Compose</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compose_card_text">cognitive model of a student's learning</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Education</p></div>
+                                <div class=tag0><p class="tag tag1">Personalized Lesson Plans</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/personalized_lesson.png" alt="personalized lesson">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_mastery_of_a_skill.html"><div class="card detect_card card_hide detect_cards education_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">mastery of a skill</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Education</p></div>
+                                <div class=tag0><p class="tag tag1">Personalized Lesson Plans</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/personalized_lesson.png" alt="personalized lesson">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_student_activity.html"><div class="card detect_card card_hide detect_cards education_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">student activity</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Education</p></div>
+                                <div class=tag0><p class="tag tag1">Feedback Systems</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/feedback_system.png" alt="energy management">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_students_grades.html"><div class="card estimate_card card_hide estimate_cards education_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">student's grades</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Education</p></div>
+                                <div class=tag0><p class="tag tag1">Feedback System</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/feedback_system.png" alt="feedback system">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_student_learning_of_a_skill.html"><div class="card estimate_card card_hide estimate_cards education_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">student's learning of a skill</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Education</p></div>
+                                <div class=tag0><p class="tag tag1">Personalized Lesson Plans</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/personalized_lesson.png" alt="personalized lesson">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_student_performance.html"><div class="card estimate_card card_hide estimate_cards education_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">student's performance</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Education</p></div>
+                                <div class=tag0><p class="tag tag1">Feedback System</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/feedback_system.png" alt="feedback system">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_the_competency_of_a_student.html"><div class="card estimate_card card_hide estimate_cards education_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">the competency of a student</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Education</p></div>
+                                <div class=tag0><p class="tag tag1">Personalized Lesson Plans</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/personalized_lesson.png" alt="personalized lesson">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_student_to_give_feedback.html"><div class="card identify_card card_hide identify_cards education_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">students to give feedback</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Education</p></div>
+                                    <div class=tag0><p class="tag tag1">Feedback Systems</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/feedback_system.png" alt="feedback_system">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_which_part_of_student_work.html"><div class="card identify_card card_hide identify_cards education_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">which part of student work is correct</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Education</p></div>
+                                    <div class=tag0><p class="tag tag1">Feedback Systems</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/feedback_system.png" alt="feedback_system">
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <p class="title">Finance</p>
+                    <div class="cardbox discover_cardbox">
+                        <a href="link/detect_handwriting_on_document.html"><div class="card detect_card card_hide detect_cards finance_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">handwriting on documents</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Finance</p></div>
+                                <div class=tag0><p class="tag tag1">Robotic Process Automation</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/robotic_process_automation.png" alt="robotic process automation">
+                            </div>
+                        </div></a>
+
+                        <a href="link/discover_discrepancies_on_documents.html"><div class="card discover_card card_hide discover_cards finance_card">
+                            <div class="card_title discover_card_title">
+                                <p class=card_title_p>Discover</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="discover_card_text">discrepancies on documents</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Finance</p></div>
+                                <div class=tag0><p class="tag tag1">Robotic Process Automation</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/robotic_process_automation.png" alt="robotic process automation">
+                            </div>
+                        </div></a> 
+
+                        <a href="link/rate_stock_factors.html"><div class="card estimate_card card_hide estimate_cards finance_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">stock factors (k-score, value, growth, quantity)</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Finance</p></div>
+                                <div class=tag0><p class="tag tag1">Stock Trading</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/stock_trading.png" alt="stock trading">
+                            </div>
+                        </div></a>
+
+                        <a href="link/forecast_future_start_prices.html"><div class="card forecast_card card_hide forecast_cards finance_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">future start prices</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Finance</p></div>
+                                    <div class=tag0><p class="tag tag1">Stock Recommendations</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/stock_trading.png" alt="stock trading">
+                            </div>
+                        </div></a>
+
+                        <a href="link/forecast_market_trends.html"><div class="card forecast_card card_hide forecast_cards finance_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">market trends</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Finance</p></div>
+                                    <div class=tag0><p class="tag tag1">Stock Recommendations</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/stock_trading.png" alt="stock trading">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_best_trading_times.html"><div class="card identify_card card_hide identify_cards finance_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">best trading times</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Finance</p></div>
+                                    <div class=tag0><p class="tag tag1">Robotic Process Automation</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/robotic_process_automation.png" alt="robotic_process_automation">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_handwritten_words.html"><div class="card identify_card card_hide identify_cards finance_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">handwritten words</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Finance</p></div>
+                                    <div class=tag0><p class="tag tag1">Robotic Process Automation</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/robotic_process_automation.png" alt="robotic_process_automation">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_key_data_points.html"><div class="card identify_card card_hide identify_cards finance_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">key data points from documents</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Finance</p></div>
+                                    <div class=tag0><p class="tag tag1">Robotic Process Automation</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/robotic_process_automation.png" alt="robotic_process_automation">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_states_based_on_forms.html"><div class="card identify_card card_hide identify_cards finance_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">states based on forms</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Finance</p></div>
+                                    <div class=tag0><p class="tag tag1">Robotic Process Automation</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/robotic_process_automation.png" alt="robotic_process_automation">
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <p class="title">Healthcare</p>
+                    <div class="cardbox estimate_cardbox">
+                        <a href="link/generate_diverse_object_appearances_in_different_view_condition.html"><div class="card compose_card card_hide compose_cards healthcare_card">
+                            <div class="card_title compose_card_title">
+                                <p class=card_title_p>Compose</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compose_card_text">diverse object appearances in different view conditions</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                <div class=tag0><p class="tag tag1">New Medical Data Synthesis</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/new_medical_data_synthesis.png" alt="new medical data synthesis">
+                            </div>
+                        </div></a>
+
+                        <a href="link/generate_high_resolution_medical_image_from_low_resolution_input_image.html"><div class="card compose_card card_hide compose_cards healthcare_card">
+                            <div class="card_title compose_card_title">
+                                <p class=card_title_p>Compose</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compose_card_text">high-resolution medical images from low-resolution images</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                <div class=tag0><p class="tag tag1">New Medical Data Synthesis</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/new_medical_data_synthesis.png" alt="new medical data synthesis">
+                            </div>
+                        </div></a>
+
+                        <a href="link/generate_new_synthetic_medical_image_from_existing_image.html"><div class="card compose_card card_hide compose_cards healthcare_card">
+                            <div class="card_title compose_card_title">
+                                <p class=card_title_p>Compose</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compose_card_text">new synthetic medical images from existing images</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                <div class=tag0><p class="tag tag1">New Medical Data Synthesis</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/new_medical_data_synthesis.png" alt="new medical data synthesis">
+                            </div>
+                        </div></a>
+
+                        <a href="link/generate_new_synthetic_medical_image_from_text_inputs.html"><div class="card compose_card card_hide compose_cards healthcare_card">
+                            <div class="card_title compose_card_title">
+                                <p class=card_title_p>Compose</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compose_card_text">new synthetic medical images from text inputs</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                <div class=tag0><p class="tag tag1">New Medical Data Synthesis</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/new_medical_data_synthesis.png" alt="new medical data synthesis">
+                            </div>
+                        </div></a>
+
+                        <a href="link/generate_the_different_view_of_objects_from_existing_images.html"><div class="card compose_card card_hide compose_cards healthcare_card">
+                            <div class="card_title compose_card_title">
+                                <p class=card_title_p>Compose</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compose_card_text">the different views of objects from existing images</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                <div class=tag0><p class="tag tag1">New Medical Data Synthesis</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/new_medical_data_synthesis.png" alt="new medical data synthesis">
+                            </div>
+                        </div></a>
+
+                        <a href="link/generate_the_different_view_of_objects_from_existing_images.html"><div class="card compose_card card_hide compose_cards healthcare_card">
+                            <div class="card_title compose_card_title">
+                                <p class=card_title_p>Compose</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compose_card_text">the different views of objects from existing images</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                <div class=tag0><p class="tag tag1">New Medical Data Synthesis</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/new_medical_data_synthesis.png" alt="new medical data synthesis">
+                            </div>
+                        </div></a>
+
+                        <a href="link/generate_the_missing_or_damaged_parts_of_existing_image.html"><div class="card compose_card card_hide compose_cards healthcare_card">
+                            <div class="card_title compose_card_title">
+                                <p class=card_title_p>Compose</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compose_card_text">the missing or damaged parts of existing images</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                <div class=tag0><p class="tag tag1">New Medical Data Synthesis</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/new_medical_data_synthesis.png" alt="new medical data synthesis">
+                            </div>
+                        </div>
+
+                        <a href="link/detect_anomalies_in_medical_images.html"><div class="card detect_card card_hide detect_cards healthcare_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">anomalies in medical images</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                <div class=tag0><p class="tag tag1">Medical Imaging Analysis</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/medical_imaging_analysis.png" alt="medical imaging analysis">
+                            </div>
+                        </div></a>
+
+                        <a href="link/discover_new_uses_for_drug.html"><div class="card discover_card card_hide discover_cards healthcare_card">
+                            <div class="card_title discover_card_title">
+                                <p class=card_title_p>Discover</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="discover_card_text">new uses for drug</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                <div class=tag0><p class="tag tag1">Drug Development</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/drug_discovery.png" alt="drug discovery">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_drug_toxicity.html"><div class="card estimate_card card_hide estimate_cards healthcare_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">drug toxicity</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                <div class=tag0><p class="tag tag1">Drug Development</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/drug_discovery.png" alt="drug discovery">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_the_promise_of_a_drug.html"><div class="card estimate_card card_hide estimate_cards healthcare_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">the promise of a drug</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                <div class=tag0><p class="tag tag1">Drug Development</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/drug_discovery.png" alt="drug discovery">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_volumetric_size_of_a_tumor.html"><div class="card estimate_card card_hide estimate_cards healthcare_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">volumetric size of a tumor</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                <div class=tag0><p class="tag tag1">Medical Imaging Analysis</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/medical_imaging_analysis.png" alt="medical imaging analysis">
+                            </div>
+                        </div></a>
+
+                        <a href="link/predict_drug's_bioactivity.html"><div class="card forecast_card card_hide forecast_cards healthcare_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">drug's bioactivity</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                    <div class=tag0><p class="tag tag1">Drug Development</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/drug_discovery.png" alt="drug discovery">
+                            </div>
+                        </div></a>
+
+                        <a href="link/predict_drug's_physio-chemical_reaction.html"><div class="card forecast_card card_hide forecast_cards healthcare_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">drug's physio-chemical reaction</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                    <div class=tag0><p class="tag tag1">Drug Development</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/drug_discovery.png" alt="drug discovery">
+                            </div>
+                        </div></a>
+
+                        <a href="link/predict_drug's_protein_interaction.html"><div class="card forecast_card card_hide forecast_cards healthcare_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">drug's protein interaction</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                    <div class=tag0><p class="tag tag1">Drug Development</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/drug_discovery.png" alt="drug discovery">
+                            </div>
+                        </div></a>
+                        
+                        <a href="link/predict_drug's_protein_structure.html"><div class="card forecast_card card_hide forecast_cards healthcare_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">drug's protein structure</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                <div class=tag0><p class="tag tag1">Drug Development</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/drug_discovery.png" alt="drug discovery">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_anomalies_as_tumors_or_not.html"><div class="card identify_card card_hide identify_cards healthcare_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">anomalies as tumors or not</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                    <div class=tag0><p class="tag tag1">Medical Imaging Analysis</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/medical_imaging_analysis.png" alt="medical_imaging_analysis">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_specific_types_of_tumors.html"><div class="card identify_card card_hide identify_cards healthcare_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">specific types of tumors</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                    <div class=tag0><p class="tag tag1">Medical Imaging Analysis</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/medical_imaging_analysis.png" alt="medical_imaging_analysis">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_tumors_as_either_benign_or_malignant.html"><div class="card identify_card card_hide identify_cards healthcare_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">tumors as either benign or malignant</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Healthcare</p></div>
+                                    <div class=tag0><p class="tag tag1">Medical Imaging Analysis</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/medical_imaging_analysis.png" alt="medical_imaging_analysis">
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <p class="title">Hospitality</p>
+                    <div class="cardbox forecast_cardbox">
+                        <a href="link/discover_frequently_used_topics_from_text.html"><div class="card discover_card card_hide discover_cards hospitality_card">
+                            <div class="card_title discover_card_title">
+                                <p class=card_title_p>Discover</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="discover_card_text">frequently used topics from text</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Hospitality</p></div>
+                                <div class=tag0><p class="tag tag1">Review Analytics</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/review_analytics.png" alt="review analytics">
+                            </div>
+                        </div></a>
+
+                        <a href="link/forecast_the_best_pricing_for_listing.html"><div class="card forecast_card card_hide forecast_cards hospitality_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">the best pricing for listing</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Hospitality</p></div>
+                                    <div class=tag0><p class="tag tag1">Smart Pricing</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/smart_pricing.png" alt="smart pricing">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_context_from_text.html"><div class="card identify_card card_hide identify_cards hospitality_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">context from text</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Hospitality</p></div>
+                                    <div class=tag0><p class="tag tag1">Review Analytics</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/review_analytics.png" alt="review_analytics">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_intent_from_text.html"><div class="card identify_card card_hide identify_cards hospitality_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">intent from text</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Hospitality</p></div>
+                                    <div class=tag0><p class="tag tag1">Review Analytics</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/review_analytics.png" alt="review_analytics">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_subjects_from_text.html"><div class="card identify_card card_hide identify_cards hospitality_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">subjects from text</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Hospitality</p></div>
+                                    <div class=tag0><p class="tag tag1">Review Analytics</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/review_analytics.png" alt="review_analytics">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_user_sentiment.html"><div class="card identify_card card_hide identify_cards hospitality_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">user sentiment</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Hospitality</p></div>
+                                    <div class=tag0><p class="tag tag1">Review Analytics</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/review_analytics.png" alt="review_analytics">
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <p class="title">Infrastructure & Utilities</p>
+                    <div class="cardbox identify_cardbox">
+                        <a href="link/compare_impact_of_temperature_settings.html"><div class="card compare_card card_hide compare_cards infrastructure_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">impact of optimal temperature settings</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Infrastructure & Utilities</p></div>
+                                <div class=tag0><p class="tag tag1">Energy & Utility</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/energy_management1.png" alt="energy management">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_energy_usage.html"><div class="card detect_card card_hide detect_cards infrastructure_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">energy usage</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Infrastructure & Utilities</p></div>
+                                <div class=tag0><p class="tag tag1">Energy & Utility</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/energy_management1.png" alt="energy management">
+                            </div>
+                        </div></a>
+
+                        <a href="link/predict_infrastructure_part_will_breakdown.html"><div class="card forecast_card card_hide forecast_cards infrastructure_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">if infrastructure parts will breakdown</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Infrastructure & Utilities</p></div>
+                                <div class=tag0><p class="tag tag1">Energy & Utility</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/energy_management1.png" alt="energy management">
+                            </div>
+                        </div></a>
+
+                        <a href="link/forecast_usage_peaks_and_valleys.html"><div class="card forecast_card card_hide forecast_cards infrastructure_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">usage peaks and valleys</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Infrastructure & Utilities</p></div>
+                                    <div class=tag0><p class="tag tag1">Energy Management</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/energy_management1.png" alt="energy management 1">
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <p class="title">Leisure, Content & Media</p>
+                    <div class="cardbox compare_cardbox">
+                        <a href="link/compose_text_from_speech.html"><div class="card compose_card card_hide compose_cards leisure_card">
+                            <div class="card_title compose_card_title">
+                                <p class=card_title_p>Compose</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compose_card_text">text from speech in video contents</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                <div class=tag0><p class="tag tag1">Media Stream</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/media_stream1.png" alt="media stream">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_device_activation.html"><div class="card detect_card card_hide detect_cards leisure_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">device activation</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                <div class=tag0><p class="tag tag1">Smart Speaker Answering</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/smart_speaker.png" alt="smart speaker">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_faces_in_photos.html"><div class="card detect_card card_hide detect_cards leisure_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">faces in photos and videos</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                <div class=tag0><p class="tag tag1">Media Stream</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/media_stream1.png" alt="media stream">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_human_voice.html"><div class="card detect_card card_hide detect_cards leisure_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">human voice</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                <div class=tag0><p class="tag tag1">Smart Speaker Answering</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/smart_speaker.png" alt="smart speaker">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_speech.html"><div class="card detect_card card_hide detect_cards leisure_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">speech in video contents</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                <div class=tag0><p class="tag tag1">Media Stream</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/media_stream1.png" alt="media stream">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_user_query_from_text.html"><div class="card detect_card card_hide detect_cards leisure_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">user query from text</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                <div class=tag0><p class="tag tag1">Smart Speaker Answering</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/smart_speaker.png" alt="smart speaker">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_best_conversational_response.html"><div class="card identify_card card_hide identify_cards leisure_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">best conversational response</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                    <div class=tag0><p class="tag tag1">Smart Speaker</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/smart_speaker.png" alt="smart_speaker">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_bullying_user_behavior.html"><div class="card identify_card card_hide identify_cards leisure_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">bullying user behavior</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                    <div class=tag0><p class="tag tag1">Media Stream</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/media_stream1.png" alt="media_stream">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_company.html"><div class="card identify_card card_hide identify_cards leisure_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">company, organization or product by text</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                    <div class=tag0><p class="tag tag1">Media Stream</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/media_stream1.png" alt="media_stream">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_copyright_violation.html"><div class="card identify_card card_hide identify_cards leisure_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">copyright violation</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                    <div class=tag0><p class="tag tag1">Media Stream</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/media_stream1.png" alt="media_stream">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_inappropriate_content.html"><div class="card identify_card card_hide identify_cards leisure_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">inappropriate content</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                    <div class=tag0><p class="tag tag1">Media Stream</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/media_stream1.png" alt="media_stream">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_person_from_a_face_image.html"><div class="card identify_card card_hide identify_cards leisure_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">person from a face image</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                    <div class=tag0><p class="tag tag1">Media Stream</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/media_stream1.png" alt="media_stream">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_person_from_text.html"><div class="card identify_card card_hide identify_cards leisure_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">person from text</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                    <div class=tag0><p class="tag tag1">Media Stream</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/media_stream1.png" alt="media_stream">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_place_of_interest.html"><div class="card identify_card card_hide identify_cards leisure_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">place-of-interest in text</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                    <div class=tag0><p class="tag tag1">Media Stream</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/media_stream1.png" alt="media_stream">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_popular_travel_times.html"><div class="card identify_card card_hide identify_cards leisure_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">popular travel times</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                    <div class=tag0><p class="tag tag1">Smart Pricing</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/smart_pricing.png" alt="smart_pricing">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_subject_from_text.html"><div class="card identify_card card_hide identify_cards leisure_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">subjects from text</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                    <div class=tag0><p class="tag tag1">Smart Speaker</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/smart_speaker.png" alt="smart_speaker">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_the_sentiment_in_text.html"><div class="card identify_card card_hide identify_cards leisure_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">the sentiment in text</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                    <div class=tag0><p class="tag tag1">Media Stream</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/media_stream1.png" alt="media_stream">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_words_in_audio.html"><div class="card identify_card card_hide identify_cards leisure_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">words in audio</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Leisure, Content & Media</p></div>
+                                    <div class=tag0><p class="tag tag1">Smart Speaker</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/smart_speaker.png" alt="smart_speaker">
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <p class="title">Manufacturing & Agriculture</p>
+                    <div class="cardbox compare_cardbox">
+                        <a href="link/compare_impact_of_maintenancerepair_schedules.html"><div class="card compare_card card_hide compare_cards manufacturing_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">impact of maintenance/repair schedules</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                <div class=tag0><p class="tag tag1">Predictive Maintenance</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/predictive_maintenance.png" alt="predictive maintenance">
+                            </div>
+                        </div></a>
+
+                        <a href="link/compare_impact_of_resource_distribution_schedules.html"><div class="card compare_card card_hide compare_cards manufacturing_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">impact of resource distribution schedules</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                <div class=tag0><p class="tag tag1">Monitoring Crop Health</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/monitoring_crop_health.png" alt="monitoring crop health">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_defects_in_product_images.html"><div class="card detect_card card_hide detect_cards manufacturing_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">defect in product image</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                <div class=tag0><p class="tag tag1">Defect Detection</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/detect_defection.png" alt="detect defection">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_signs_of_stress_on_crops.html"><div class="card detect_card card_hide detect_cards manufacturing_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">signs of stress on crops</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                <div class=tag0><p class="tag tag1">Monitoring Crop Health</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/monitoring_crop_health.png" alt="monitoring crop health">
+                            </div>
+                        </div></a>
+
+                        <a href="link/discover_defect_in_a_product_image.html"><div class="card discover_card card_hide discover_cards manufacturing_card">
+                            <div class="card_title discover_card_title">
+                                <p class=card_title_p>Discover</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="discover_card_text">defects in product image</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                <div class=tag0><p class="tag tag1">Defect Detection</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/detect_defection.png" alt="detect defection">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_costs_caused_by_breakdown.html"><div class="card estimate_card card_hide estimate_cards manufacturing_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">costs caused by breakdown</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                <div class=tag0><p class="tag tag1">Predictive Maintenance</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/predictive_maintenance.png" alt="predictive maintenance">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_duration_of_breakdown.html"><div class="card estimate_card card_hide estimate_cards manufacturing_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">duration of breakdown</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                <div class=tag0><p class="tag tag1">Predictive Maintenance</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/predictive_maintenance.png" alt="predictive maintenance">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_growth_of_current_crop.html"><div class="card estimate_card card_hide estimate_cards manufacturing_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">growth of current crop</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                <div class=tag0><p class="tag tag1">Monitoring Crop Health</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/monitoring_crop_health.png" alt="monitoring crop health">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_soil_health.html"><div class="card estimate_card card_hide estimate_cards manufacturing_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">soil health</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                <div class=tag0><p class="tag tag1">Monitoring Crop Health</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/monitoring_crop_health.png" alt="monitoring crop health">
+                            </div>
+                        </div></a>
+
+                        <a href="link/forecast_crop_yield.html"><div class="card forecast_card card_hide forecast_cards manufacturing_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">crop yield</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                <div class=tag0><p class="tag tag1">Monitoring Crop Health</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/monitoring_crop_health.png" alt="monitoring crop health">
+                            </div>
+                        </div></a>
+
+                        <a href="link/predict_likelihood_of_system_breakdown.html"><div class="card forecast_card card_hide forecast_cards manufacturing_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">likelihood of system breakdown</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                <div class=tag0><p class="tag tag1">Predictive Maintenance</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/predictive_maintenance.png" alt="predictive maintenance">
+                            </div>
+                        </div></a>
+
+                        <a href="link/forecast_likelihood_of_defect.html"><div class="card forecast_card card_hide forecast_cards manufacturing_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">likelihood of defect</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                <div class=tag0><p class="tag tag1">Defect Detection</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/detect_defection.png" alt="defect detection">
+                            </div>
+                        </div></a>
+
+                        <a href="link/forecast_when_system_will_breakdown.html"><div class="card forecast_card card_hide forecast_cards manufacturing_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">when system will breakdown</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                    <div class=tag0><p class="tag tag1">Predictive Maintenance</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/predictive_maintenance.png" alt="drug discovery">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_cause_of_defects.html"><div class="card identify_card card_hide identify_cards manufacturing_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">cause of defect</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                    <div class=tag0><p class="tag tag1">Defect Detection</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/detect_defection.png" alt="detect_defection">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_source_of_crop_stress.html"><div class="card identify_card card_hide identify_cards manufacturing_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">source of crop stress</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                    <div class=tag0><p class="tag tag1">Monitoring Crop Health</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/monitoring_crop_health.png" alt="monitoring_crop_health">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_type_of_defects.html"><div class="card identify_card card_hide identify_cards manufacturing_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">type of defect</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Manufacturing & Agriculture</p></div>
+                                    <div class=tag0><p class="tag tag1">Defect Detection</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/detect_defection.png" alt="detect_defection">
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <p class="title">Office Productivity & Business</p>
+                    <div class="cardbox compare_cardbox">
+                        <a href="link/compare_likely_next_word_for_partial_sentence.html"><div class="card compare_card card_hide compare_cards office_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">likely next word for partial sentence</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Office Productivity</p></div>
+                                <div class=tag0><p class="tag tag1">Predictive Text</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/predictive_text.png" alt="predictive text">
+                            </div>
+                        </div></a>
+                        <a href="link/compare_likely_next_phrase_for_partial_sentence.html"><div class="card compare_card card_hide compare_cards office_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">likely next phrase for partial sentence</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Office Productivity</p></div>
+                                <div class=tag0><p class="tag tag1">Predictive Text</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/predictive_text.png" alt="predictive text">
+                            </div>
+                        </div></a>
+
+                        <a href="link/compare_likely_ending_of_sentence_for_partial_sentence.html"><div class="card compare_card card_hide compare_cards office_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">likely ending of sentence for partial sentence</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Office Productivity</p></div>
+                                <div class=tag0><p class="tag tag1">Predictive Text</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/predictive_text.png" alt="predictive text">
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <p class="title">Professional Services</p>
+                    <div class="cardbox compare_cardbox">
+                        <a href="link/compare_conversational_responses.html"><div class="card compare_card card_hide compare_cards professional_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">conversational responses</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Professional Sevices</p></div>
+                                <div class=tag0><p class="tag tag1">HR Chatbot</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/hrchatbot1.png" alt="hr chatbot">
+                            </div>
+                        </div></a>
+
+                        <a href="link/compare_job_candidates_from_experience.html"><div class="card compare_card card_hide compare_cards professional_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">job candidates from experience (best)</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Professional Services</p></div>
+                                <div class=tag0><p class="tag tag1">Candidate Screening</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/candidate_screening.png" alt="candidate screening">
+                            </div>
+                        </div></a>
+
+                        <a href="link/compose_response_to_user_query.html"><div class="card compose_card card_hide compose_cards professional_card">
+                            <div class="card_title compose_card_title">
+                                <p class=card_title_p>Compose</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compose_card_text">responses to user query</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Professional Services</p></div>
+                                <div class=tag0><p class="tag tag1">HR Chatbot</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/hrchatbot1.png" alt="HR chatbot">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_bias_in_job_listing_text.html"><div class="card detect_card card_hide detect_cards professional_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">bias in job listing text</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Professional Services</p></div>
+                                <div class=tag0><p class="tag tag1">Candidate Screening</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/candidate_screening.png" alt="candidate screening">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_body_position_in_video.html"><div class="card detect_card card_hide detect_cards professional_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">body position in video</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Professional Services</p></div>
+                                <div class=tag0><p class="tag tag1">Candidate Screening</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/candidate_screening.png" alt="candidate screening">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_emotion_in_voice_audio.html"><div class="card detect_card card_hide detect_cards professional_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">emotion in voice audio</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Professional Services</p></div>
+                                <div class=tag0><p class="tag tag1">Candidate Screening</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/candidate_screening.png" alt="candidate screening">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_face_in_video.html"><div class="card detect_card card_hide detect_cards professional_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">face in video</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Professional Services</p></div>
+                                <div class=tag0><p class="tag tag1">Candidate Screening</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/candidate_screening.png" alt="candidate screening">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_best_conversational_response2.html"><div class="card identify_card card_hide identify_cards professional_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">best conversational response</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Professional Services</p></div>
+                                    <div class=tag0><p class="tag tag1">HR Chatbot</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/hrchatbot1.png" alt="smart_speaker">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_competencies_from_resume_text.html"><div class="card identify_card card_hide identify_cards professional_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">competencies from resume text</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Professional Services</p></div>
+                                    <div class=tag0><p class="tag tag1">Candidate Screening</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/candidate_screening.png" alt="candidate_screening">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_emotion_in_face_image.html"><div class="card identify_card card_hide identify_cards professional_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">emotion in face image</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Professional Services</p></div>
+                                    <div class=tag0><p class="tag tag1">Candidate Screening</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/candidate_screening.png" alt="candidate_screening">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_emotion_in_gesture.html"><div class="card identify_card card_hide identify_cards professional_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">emotion in gesture</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Professional Services</p></div>
+                                    <div class=tag0><p class="tag tag1">Candidate Screening</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/candidate_screening.png" alt="candidate_screening">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_emotion_in_voice_audio.html"><div class="card identify_card card_hide identify_cards professional_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">emotion in voice audio</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Professional Services</p></div>
+                                    <div class=tag0><p class="tag tag1">Candidate Screening</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/candidate_screening.png" alt="candidate_screening">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_sentiment_in_job_listing_text.html"><div class="card identify_card card_hide identify_cards professional_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">sentiment in job listing text</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Professional Services</p></div>
+                                    <div class=tag0><p class="tag tag1">Candidate Screening</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/candidate_screening.png" alt="candidate_screening">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_skills_from_resume_text.html"><div class="card identify_card card_hide identify_cards professional_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">skills from resume text</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Professional Services</p></div>
+                                    <div class=tag0><p class="tag tag1">Candidate Screening</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/candidate_screening.png" alt="candidate_screening">
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <p class="title">Risk Mitigation & Security</p>
+                    <div class="cardbox compare_cardbox">
+                        <a href="link/detect_face_in_depth_map.html"><div class="card detect_card card_hide detect_cards risk_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">face in depth map</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Risk Mitigation & Security</p></div>
+                                <div class=tag0><p class="tag tag1">Biometric Security</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/biometric_security.png" alt="biometric security">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_face_in_image.html"><div class="card detect_card card_hide detect_cards risk_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">face in image</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Risk Mitigation & Security</p></div>
+                                <div class=tag0><p class="tag tag1">Biometric Security</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/biometric_security.png" alt="biometric security">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_fingerprint_in_image.html"><div class="card detect_card card_hide detect_cards risk_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">fingerprint in image</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Risk Mitigation & Security</p></div>
+                                <div class=tag0><p class="tag tag1">Biometric Security</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/biometric_security.png" alt="biometric security">
+                            </div>
+                        </div></a>
+
+                        <a href="link/discover_new_fraudulent_tactics.html"><div class="card discover_card card_hide discover_cards risk_card">
+                            <div class="card_title discover_card_title">
+                                <p class=card_title_p>Discover</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="discover_card_text">new fraudulent tactics</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Risk Mitigation & Security</p></div>
+                                <div class=tag0><p class="tag tag1">Transaction Detection</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/fraudulent_transaction.png" alt="fraudulent transaction">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_risk_of_fraud.html"><div class="card estimate_card card_hide estimate_cards risk_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">risk of fraud</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Risk Mitigation & Security</p></div>
+                                <div class=tag0><p class="tag tag1">Transaction Detection</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/fraudulent_transaction.png" alt="fraudulent transaction">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_face_in_depth_map.html"><div class="card identify_card card_hide identify_cards risk_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">face in depth map</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Risk Mitigation & Security</p></div>
+                                    <div class=tag0><p class="tag tag1">Biometric Security</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/biometric_security.png" alt="biometric security">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_face_in_image.html"><div class="card identify_card card_hide identify_cards risk_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">face in image</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Risk Mitigation & Security</p></div>
+                                    <div class=tag0><p class="tag tag1">Biometric Security</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/biometric_security.png" alt="biometric security">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_fingerprint_in_image.html"><div class="card identify_card card_hide identify_cards risk_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">fingerprint in image</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Risk Mitigation & Security</p></div>
+                                    <div class=tag0><p class="tag tag1">Biometric Security</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/biometric_security.png" alt="biometric security">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_safe_and_fraudulent_transactions.html"><div class="card identify_card card_hide identify_cards risk_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">safe and fraudulent transactions</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Risk Mitigation & Security</p></div>
+                                    <div class=tag0><p class="tag tag1">Transaction Detection</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/fraudulent_transaction.png" alt="fraudulent_transaction">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_voice_in_audio.html"><div class="card identify_card card_hide identify_cards risk_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">voice in audio</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Risk Mitigation & Security</p></div>
+                                    <div class=tag0><p class="tag tag1">Biometric Security</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/biometric_security.png" alt="biometric security">
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <p class="title">Transportation</p>
+                    <div class="cardbox compare_cardbox">
+                        <a href="link/compare_routes.html"><div class="card compare_card card_hide compare_cards transportation_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">best routes</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                <div class=tag0><p class="tag tag1">Best Route (GPS)</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/best_route.png" alt="best route">
+                            </div>
+                        </div></a>
+
+                        <a href="link/compare_potential_parking_place.html"><div class="card compare_card card_hide compare_cards transportation_card">
+                            <div class="card_title compare_card_title">
+                                <p class=card_title_p>Compare</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compare_card_text">potential parking place</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                <div class=tag0><p class="tag tag1">AI Parking</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/aiparking.png" alt="AI parking">
+                            </div>
+                        </div></a>
+
+                        <a href="link/compose_the_driving_path.html"><div class="card compose_card card_hide compose_cards transportation_card">
+                            <div class="card_title compose_card_title">
+                                <p class=card_title_p>Compose</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="compose_card_text">the driving paths</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                <div class=tag0><p class="tag tag1">AI Parking</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/aiparking.png" alt="AI parking">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_lane_boundaries_in_image.html"><div class="card detect_card card_hide detect_cards transportation_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">lane boundaries in image</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                <div class=tag0><p class="tag tag1">AV Lane Departure</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/av_lane_departure.png" alt="AV lane departure">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_nearby_objects_might_hit.html"><div class="card detect_card card_hide detect_cards transportation_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">if nearby objects that might hit</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                <div class=tag0><p class="tag tag1">AV Lane Departure</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/av_lane_departure.png" alt="AV lane departure">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_the_parking_place.html"><div class="card detect_card card_hide detect_cards transportation_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">the parking space</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                <div class=tag0><p class="tag tag1">AV Lane Departure</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/av_lane_departure.png" alt="AV lane departure">
+                            </div>
+                        </div></a>
+
+                        <a href="link/detect_voice_in_audio.html"><div class="card detect_card card_hide detect_cards risk_card">
+                            <div class="card_title detect_card_title">
+                                <p class=card_title_p>Detect</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="detect_card_text">voice in audio</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Risk Mitigation & Security</p></div>
+                                <div class=tag0><p class="tag tag1">Biometric Security</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/biometric_security.png" alt="biometric security">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_car_location_from_motion.html"><div class="card estimate_card card_hide estimate_cards transportation_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">car's location from motion</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                <div class=tag0><p class="tag tag1">AV Lane Departure</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/av_lane_departure.png" alt="AV Lane Departure">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_car_location_from_motion.html"><div class="card estimate_card card_hide estimate_cards transportation_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">car's position within lane</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                <div class=tag0><p class="tag tag1">AV Lane Departure</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/av_lane_departure.png" alt="AV Lane Departure">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_danger_from_lane_departure.html"><div class="card estimate_card card_hide estimate_cards transportation_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">danger from lane departure</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                <div class=tag0><p class="tag tag1">AV Lane Departure</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/av_lane_departure.png" alt="AV Lane Departure">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_the_size_of_parking_space.html"><div class="card estimate_card card_hide estimate_cards transportation_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">the size of parking space</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                <div class=tag0><p class="tag tag1">AV Lane Departure</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/av_lane_departure.png" alt="AV Lane Departure">
+                            </div>
+                        </div></a>
+
+                        <a href="link/estimate_travel_time.html"><div class="card estimate_card card_hide estimate_cards transportation_card">
+                            <div class="card_title estimate_card_title">
+                                <p class=card_title_p>Estimate</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="estimate_card_text">travel time</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                <div class=tag0><p class="tag tag1">AV Lane Departure</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/av_lane_departure.png" alt="AV Lane Departure">
+                            </div>
+                        </div></a>
+
+                        <a href="link/predict_if_car_will_leave_lane.html"><div class="card forecast_card card_hide forecast_cards transportation_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">if car will leave lane</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                <div class=tag0><p class="tag tag1">AV Lane Departure</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/av_lane_departure.png" alt="AV lane departure">
+                            </div>
+                        </div></a>
+
+                        <a href="link/forecast_impact_of_traffic.html"><div class="card forecast_card card_hide forecast_cards transportation_card">
+                            <div class="card_title forecast_card_title">
+                                <p class=card_title_p>Forecast</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="forecast_card_text">impact of traffic</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                    <div class=tag0><p class="tag tag1">Best Route (GPS)</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/best_route.png" alt="best route">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_intention_to_depart_or_not_depart_lane.html"><div class="card identify_card card_hide identify_cards transportation_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">intention to depart or not depart lane</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                    <div class=tag0><p class="tag tag1">AV Lane Departure</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/av_lane_departure.png" alt="av_lane_departure">
+                            </div>
+                        </div></a>
+
+                        <a href="link/identify_willingness_to_park.html"><div class="card identify_card card_hide identify_cards transportation_card">
+                            <div class="card_title identify_card_title">
+                                <p class=card_title_p>Identify</p>
+                            </div>
+                            <div class="card_text">
+                                <p class="identify_card_text">the willingness to park</p>
+                            </div>
+                            <div class="card_tag">
+                                <div class=tag0><p class="tag tag1">Transportation</p></div>
+                                    <div class=tag0><p class="tag tag1">AI Parking</p></div>
+                            </div>
+                            <div class="card_img">
+                                <img class="card_icon" src="assets/img/aiparking.png" alt="aiparking">
+                            </div>
+                        </div></a>
+                    </div>
+
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <div class="window question_window_show" style="display: none">
+            <!-- <div class=close style="margin-bottom: 10px">
+                <img class=close_icon src="assets/img/close.png" alt="" style="margin-bottom: 300px">
+            </div> -->
+            <div id=question_window style="padding-top: 60px">
+                <p style="font-size: 17px">This AI Taxonomy aims to support professional product designers, UX designers and startups to better envision and prototype new products and services that integate AI capabilities. 
+                    <br>
+                    <br>
+                    Each card represents a task that AI could do. You can sort through the cards by selecting “by Capability” or "by Industry" at the top right bar. You can also use filters on the left side to filter cards, and click any card to view the workflow in details.
+                    <br>
+                    <br>
+                    This website is made by <a href=http://www.anitasun.me style="text-decoration: none; text-decoration: underline; color: rgb(0, 0, 0)" class=external_link>Anita Sun</a> as part of the research project under the guidance of professor John Zimmerman, professor Jodi Forlizzi and Nur Yildirim. Enjoy!</p>
+                    <br>
+                <div id=close_button>
+                    <span class="tag2 tag3 tag3_grey" style="margin-right: 8px; line-height: 18px">Start explore →</span>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            $(document).ready(function(){
+                $("#question_mark").click(function(){
+                    $("#modal_background").show();
+                    $(".question_window_show").show();
+                    $("#close_button").show();
+                });
+                $("#modal_background").click(function(){
+                    $("#modal_background").hide();
+                    $(".question_window_show").hide();
+                    $("#close_button").hide();
+                });
+                $("#close_button").click(function(){
+                    $("#modal_background").hide();
+                    $(".question_window_show").hide();
+                    $("#close_button").hide();
+                });
+            });
+
+            // "select all" checkbox
+            function capabilitytoggle(source){
+                checkboxes = document.getElementsByName('capability');
+                for(var i=0, n=checkboxes.length; i<n; i++){
+                    checkboxes[i].checked = source.checked;
+                }
+            }
+            function industrytoggle(source){
+                checkboxes = document.getElementsByName('industry');
+                for(var i=0, n=checkboxes.length; i<n; i++){
+                    checkboxes[i].checked = source.checked;
+                }
+            }
+            function datatypetoggle(source){
+                checkboxes = document.getElementsByName('datatype');
+                for(var i=0, n=checkboxes.length; i<n; i++){
+                    checkboxes[i].checked = source.checked;
+                }
+            }
+
+
+
+            // "select all" checkbox; all cards disappear
+            function filter_capability(){
+                var checkBox = document.getElementById('capability');
+                var cards = document.getElementsByClassName('card_hide');
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                }
+            }
+            function filter_industry(){
+                var checkBox = document.getElementById('industry');
+                var cards = document.getElementsByClassName('card_hide');
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                }
+            }
+            function filter_datatype(){
+                var checkBox = document.getElementById('datatype');
+                var cards = document.getElementsByClassName('card_hide');
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                }
+            }
+
+
+
+            function filter_act(){
+                var checkBox = document.getElementById('act');
+                var cardBox = document.getElementById('act_cardbox');
+                var cards = document.getElementsByClassName('act_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_compare(){
+                var checkBox = document.getElementById('compare');
+                var cardBox = document.getElementById('compare_cardbox');
+                var cards = document.getElementsByClassName('compare_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_compose(){
+                var checkBox = document.getElementById('compose');
+                var cardBox = document.getElementById('compose_cardbox');
+                var cards = document.getElementsByClassName('compose_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_detect(){
+                var checkBox = document.getElementById('detect');
+                var cardBox = document.getElementById('detect_cardbox');
+                var cards = document.getElementsByClassName('detect_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_discover(){
+                var checkBox = document.getElementById('discover');
+                var cardBox = document.getElementById('discover_cardbox');
+                var cards = document.getElementsByClassName('discover_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_estimate(){
+                var checkBox = document.getElementById('estimate');
+                var cardBox = document.getElementById('estimate_cardbox');
+                var cards = document.getElementsByClassName('estimate_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_forecast(){
+                var checkBox = document.getElementById('forecast');
+                var cardBox = document.getElementById('forecast_cardbox');
+                var cards = document.getElementsByClassName('forecast_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_identify(){
+                var checkBox = document.getElementById('identify');
+                var cardBox = document.getElementById('identify_cardbox');
+                var cards = document.getElementsByClassName('identify_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_commerce(){
+                var checkBox = document.getElementById('commerce');
+                var cardBox = document.getElementById('commerce_cardbox');
+                var cards = document.getElementsByClassName('commerce_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_education(){
+                var checkBox = document.getElementById('education');
+                var cardBox = document.getElementById('education_cardbox');
+                var cards = document.getElementsByClassName('education_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_finance(){
+                var checkBox = document.getElementById('finance');
+                var cardBox = document.getElementById('finance_cardbox');
+                var cards = document.getElementsByClassName('finance_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_healthcare(){
+                var checkBox = document.getElementById('healthcare');
+                var cardBox = document.getElementById('healthcare_cardbox');
+                var cards = document.getElementsByClassName('healthcare_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_hospitality(){
+                var checkBox = document.getElementById('hospitality');
+                var cardBox = document.getElementById('hospitality_cardbox');
+                var cards = document.getElementsByClassName('hospitality_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_infrastructure(){
+                var checkBox = document.getElementById('infrastructure');
+                var cardBox = document.getElementById('infrastructure_cardbox');
+                var cards = document.getElementsByClassName('infrastructure_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_leisure(){
+                var checkBox = document.getElementById('leisure');
+                var cardBox = document.getElementById('leisure_cardbox');
+                var cards = document.getElementsByClassName('leisure_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_manufacturing(){
+                var checkBox = document.getElementById('manufacturing');
+                var cardBox = document.getElementById('manufacturing_cardbox');
+                var cards = document.getElementsByClassName('manufacturing_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_office(){
+                var checkBox = document.getElementById('office');
+                var cardBox = document.getElementById('office_cardbox');
+                var cards = document.getElementsByClassName('office_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_professional(){
+                var checkBox = document.getElementById('professional');
+                var cardBox = document.getElementById('professional_cardbox');
+                var cards = document.getElementsByClassName('professional_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_risk(){
+                var checkBox = document.getElementById('risk');
+                var cardBox = document.getElementById('risk_cardbox');
+                var cards = document.getElementsByClassName('risk_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+            function filter_transportation(){
+                var checkBox = document.getElementById('transportation');
+                var cardBox = document.getElementById('transportation_cardbox');
+                var cards = document.getElementsByClassName('transportation_card');
+                console.log(cards);
+                if (checkBox.checked == true){
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'block';
+                    }
+                    cardBox.style.display = 'flex';
+                } else {
+                    for(var i=0, n=cards.length; i<n; i++){
+                        cards[i].style.display = 'none';
+                    }
+                    cardBox.style.display = 'none';
+                }
+            }
+        </script>
+    </body>
+
+</html>
