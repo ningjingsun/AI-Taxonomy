@@ -6,5 +6,5 @@ Each card represents a task that AI could do. You can sort through the cards by 
 
 This website is made by Anita Sun as part of the research project under the guidance of professor John Zimmerman, professor Jodi Forlizzi and Nur Yildirim. Enjoy!
 
-https://aitaxonomy.xyz/
+http://aitaxonomy.xyz/overview.html
 https://ningjingsun.github.io/AI-Taxonomy/overview.html
