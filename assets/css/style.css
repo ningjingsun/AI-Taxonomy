@@ -592,7 +592,8 @@ p{
 }
 .description{
     margin-left: 100px;
-    margin-right: 420px;
+    /* margin-right: 420px;*/
+    margin-right: 20vw;
     margin-top: 54px;
     margin-bottom: 0px;
     /* padding: 60px;
@@ -634,7 +635,7 @@ p{
     border-width: 1px;
 }
 #scrollable{
-    width: calc(100vw - 582px);
+    width: calc(80vw - 162px);
     overflow-x: auto;
     white-space: nowrap;
     padding-top: 40px;
@@ -649,19 +650,26 @@ p{
 #datatype{
     display: flex;
     width: 100%;
+    /*width: calc(80vw - 162px);*/
     flex-direction: row;
+    overflow: hidden;
+    overflow-x: auto;
+    scrollbar-width: none;
+    /*flex-flow: row wrap;*/
+
+
 }
 .child1{
     /* flex-grow: 1; */
-    width: 13%;
+    width: calc(0.13 *(80vw - 162px));
     background-color: rgb(230, 230, 230);
     padding: 60px;
     padding-top: 40px;
     border-radius: 0px 0px 0px 24px;
 }
 .child2{
-    /* flex-grow: 2; */
-    width: 29%;
+    /* flex-grow: 2;*/
+    width: calc(0.13 *(80vw - 162px));
     padding: 60px;
     padding-top: 40px;
     border: solid rgba(178, 183, 190, 0.5);
@@ -670,7 +678,7 @@ p{
 }
 .child3{
     /* flex-grow: 2; */
-    width: 29%;
+    width: calc(0.13 *(80vw - 162px));
     padding: 60px;
     padding-top: 40px;
     border: solid rgba(178, 183, 190, 0.5);
@@ -679,7 +687,7 @@ p{
 }
 .child4{
     /* flex-grow: 2; */
-    width: 29%;
+    width: calc(0.13 *(80vw - 162px));
     padding: 60px;
     padding-top: 40px;
 }
