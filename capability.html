@@ -2374,9 +2374,17 @@
                 for(var i=0, n=checkboxes.length; i<n; i++){
                     checkboxes[i].checked = source.checked;
                 }
+                checkboxes = document.getElementsByName('industry');
+                for(var i=0, n=checkboxes.length; i<n; i++){
+                    checkboxes[i].checked = source.checked;
+                }
             }
             function industrytoggle(source){
                 checkboxes = document.getElementsByName('industry');
+                for(var i=0, n=checkboxes.length; i<n; i++){
+                    checkboxes[i].checked = source.checked;
+                }
+                checkboxes = document.getElementsByName('capability');
                 for(var i=0, n=checkboxes.length; i<n; i++){
                     checkboxes[i].checked = source.checked;
                 }
